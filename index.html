@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  	<title>Cobbl YouTube APi</title>
+  	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/reset.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+  	<section class="block_section">
+    	<div class="container-loader"><span></span></div>
+	    <div class="container">
+	    	<div class="block_section yt-header">
+		      	<h3 class="yt-title">Log In with Youtube account</h3>
+		      	<button class="yt-btn red" id="authorize-button">Log In</button>
+		      	<button class="yt-btn red" id="signout-button">Log Out</button>
+	    	</div>
+	    	<div class="yt-wrapper">
+				<div class="tabs block_section">
+					<div class="tabs__header block_section">
+						<a href="javascript:void(0)" class="tab__button tab-1 is--active">List of videos</a>
+						<a href="javascript:void(0)" class="tab__button tab-2">Upload new video</a>
+					</div>
+					<div class="block_section">
+						<div id="iframe"></div>
+					</div>
+					<div class="tabs__main block_section">
+						<div class="tabs__item tab-1 is--active">
+					      	<div id="content" class="block_section">
+					        	<div class="row" id="video-container"></div>
+					        	<div class="list_footer">
+					        		<div id="pages"><span id="loadmore"></span></div>
+									<button id="addVideo" class="yt-btn red">Add to board</button>    	
+					        	</div>
+
+					      	</div>
+				      	</div>
+						<div class="tabs__item tab-2">
+					      	<div class="uploadWrapper block_section" id="uploadWrapper">
+					      		<div class="row">
+									<div class="column-6">
+										<label for="title">Title:</label>
+										<input id="title" type="text" required>
+									</div>
+									<div class="column-6">
+										<label for="privacy-status">Privacy Status:</label>
+										<select id="privacy-status">
+											<option value="public" selected>Public</option>
+											<option value="unlisted">Unlisted</option>
+											<option value="private">Private</option>
+										</select>
+									</div>
+									<div class="column-12">
+										<label for="description">Description:</label>
+										<textarea id="description" required></textarea>
+									</div>
+									<div class="column-4">
+										<input input type="file" id="file" class="button" accept="video/*" required>
+										<label for="file">Select your video</label>
+									</div>
+									<div class="column-4">
+										<div class="during-upload">
+											<progress id="upload-progress" max="1" value="0"></progress>
+											<p><span id="percent-transferred"></span>% done (<span id="bytes-transferred"></span>/<span id="total-bytes"></span> kilobytes)</p>
+										</div>
+									</div>
+									<div class="column-4">
+										<button id="submitButton" class="yt-btn red">Upload Video</button>
+									</div>
+					      		</div>
+								<div class="block_section">
+									<p class="error"></p>
+									<div class="post-upload">
+										<div id="post-upload-status"></div>
+										<!-- <div id="player"></div> -->
+									</div>
+									<p id="disclaimer">By uploading a video, you certify that you own all rights to the content or that you are authorized by the owner to make the content publicly available on YouTube, and that it otherwise complies with the YouTube Terms of Service located at <a href="http://www.youtube.com/t/terms" target="_blank">http://www.youtube.com/t/terms</a></p>
+								</div>
+					    	</div>
+				      	</div>
+					</div>
+				</div>
+	    	</div>
+	    </div>
+  	</section>
+  	<!-- SCRIPTS -->
+  	<script src="./js/jquery.js"></script>
+  	<script src="./js/uploader.js"></script>
+  	<script src="./js/main.js"></script>
+  	<script async defer src="https://apis.google.com/js/api.js"></script>
+</body>
+
+</html>
